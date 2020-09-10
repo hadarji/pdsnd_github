@@ -9,6 +9,7 @@ This project analyzes bike share data as per user request. The bike sharing data
 
 ### Files used
 bikeshare.py
+city data files in csv formats
 
 ### Credits
 Udaicty Data Science Team
