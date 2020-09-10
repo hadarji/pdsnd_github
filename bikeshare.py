@@ -21,7 +21,7 @@ def get_filters():
         city = str(input('Which city would like to analyze the data? [Chicago, New York City, Washington]:')).lower()
         if city in CITY_DATA:
             break
-        
+
     #To Understand what variable to filter
     filterby = str(input('Please select filters for data analysis [month, day, both, none]')).lower()
     month = 'all'
@@ -177,29 +177,29 @@ def user_stats(df):
 
 def display_df(df):
     """Display DataFrame Data to user upon their request."""
-    
+
     #Ask user if they would like to see the data
     user_perm = str(input("Would you like to see the data [yes/no]?")).lower()
-    
+
     if user_perm == "yes":
-        i = 0
+        i = 0 #initialize
         while True:
-            print(df.iloc[i:i+5,:])
-            user_perm_2 = str(input("Would you like to see more data [yes or no]?")).lower()
+            print(df.iloc[i:i+5,:]) #Print results
+            user_perm_2 = str(input("Would you like to see more data [yes or no]?")).lower() #Ask if want to proceed further
             if user_perm_2 == "no":
                 break
             i += 5 #Updating the counter
 
 def main():
     while True:
-        city, month, day = get_filters()
-        df = load_data(city, month, day)
+        city, month, day = get_filters() #Obtain the filters
+        df = load_data(city, month, day) #Load the data
 
         time_stats(df)
         station_stats(df)
         trip_duration_stats(df)
         user_stats(df)
-        display_df(df)
+        display_df(df) #Data Display function
 
         restart = input('\nWould you like to restart? Enter yes or no.\n')
         if restart.lower() != 'yes':
